@@ -27,9 +27,9 @@ public class WeatherService {
     Duration daylightDuration = Duration.between(sunriseTime, sunsetTime);
 
     long hours = daylightDuration.toHours();
-    long minutes = daylightDuration.toMinutes() % 60;
+    long minutes = daylightDuration.toMinutes() % 60; // get remaining minutes after calculating hours
 
-    double daylightHours = hours + (minutes / 60.0);
+    double daylightHours = hours + (minutes / 60.0); // convert minutes to fraction of an hour
 
     return daylightHours;
   }
