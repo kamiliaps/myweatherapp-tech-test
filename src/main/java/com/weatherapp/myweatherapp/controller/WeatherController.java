@@ -32,5 +32,12 @@ public class WeatherController {
   }
 
   // TODO: given two city names, check which city its currently raining in
+  @GetMapping("/rainCheck/{city1}/{city2}")
+  public ResponseEntity<String> rainCheck(@PathVariable("city1") String city1, @PathVariable("city2") String city2) {
+      
+      String result = weatherService.rainCheck(city1, city2);
+  
+      return ResponseEntity.ok(result);
+  }
 
 }
