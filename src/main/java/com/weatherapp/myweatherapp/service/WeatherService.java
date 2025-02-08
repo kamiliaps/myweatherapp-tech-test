@@ -20,6 +20,7 @@ public class WeatherService {
     return weatherRepo.getByCity(city);
   }
 
+  // calculate the number of daylight hours between sunrise and sunset
   public double calculateDayLightHours(String sunrise, String sunset) {
     LocalTime sunriseTime = LocalTime.parse(sunrise);
     LocalTime sunsetTime = LocalTime.parse(sunset);
@@ -34,6 +35,7 @@ public class WeatherService {
     return daylightHours;
   }
 
+  // compare the daylight hours of two cities and return the city with the longest day
   public String compareDaylightHours(String city1, String city2) {
     CityInfo city1Info = forecastByCity(city1);
     CityInfo city2Info = forecastByCity(city2);
