@@ -59,4 +59,13 @@ public class CityInfo {
 
   }
 
+  // GET METHODS
+  public String getSunrise() {
+    return currentConditions.sunrise;
+  }
+
+  public String getSunset() {
+    return currentConditions.sunset;
+  }
+
 }
