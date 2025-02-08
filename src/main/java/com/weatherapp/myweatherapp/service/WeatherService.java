@@ -49,4 +49,19 @@ public class WeatherService {
       return "The daylight hours are the same in both " + city1 + " and " + city2;
     }
   }
+
+  // check if it is currently raining in two cities
+  public String rainCheck(String city1, String city2) {
+    CityInfo city1Info = forecastByCity(city1);
+    CityInfo city2Info = forecastByCity(city2);
+
+    boolean city1Rain = city1Info.getConditions().contains("Rain");
+    boolean city2Rain = city2Info.getConditions().contains("Rain");
+
+    String rainCheckResult = "RAIN CHECK<br>" + 
+                             city1 + " : " + city1Rain + "<br>" +
+                             city2 + " : " + city2Rain;
+
+    return rainCheckResult;
+  }
 }
