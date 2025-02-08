@@ -68,4 +68,7 @@ public class CityInfo {
     return currentConditions.sunset;
   }
 
+  public String getConditions() {
+    return currentConditions.conditions;
+  }
 }
