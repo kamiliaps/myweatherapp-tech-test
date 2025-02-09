@@ -15,12 +15,22 @@ public class WeatherService {
   @Autowired
   VisualcrossingRepository weatherRepo;
 
+  /**
+   * Get the weather forecast for a city
+   * @param city the city to get the forecast for
+   * @return CityInfo object containing the forecast
+   */
   public CityInfo forecastByCity(String city) {
 
     return weatherRepo.getByCity(city);
   }
 
-  // calculate the number of daylight hours between sunrise and sunset
+  /**
+   * Calculate the number of daylight hours between sunrise and sunset
+   * @param sunrise sunrise time
+   * @param sunset sunset time
+   * @return daylightHours the number of daylight hours
+   */
   public double calculateDayLightHours(String sunrise, String sunset) {
     LocalTime sunriseTime = LocalTime.parse(sunrise);
     LocalTime sunsetTime = LocalTime.parse(sunset);
@@ -35,7 +45,12 @@ public class WeatherService {
     return daylightHours;
   }
 
-  // compare the daylight hours of two cities and return the city with the longest day
+  /**
+   * Compare the daylight hours of two cities and return the city with the longest day
+   * @param city1 
+   * @param city2
+   * @return the city with the longest day or a message if the daylight hours are the same
+   */
   public String compareDaylightHours(String city1, String city2) {
     CityInfo city1Info = forecastByCity(city1);
     CityInfo city2Info = forecastByCity(city2);
@@ -52,7 +67,12 @@ public class WeatherService {
     }
   }
 
-  // check if it is currently raining in two cities
+  /**
+   * Check if it is currently raining in two cities
+   * @param city1
+   * @param city2
+   * @return a string indicating if it is raining in each city
+   */
   public String rainCheck(String city1, String city2) {
     CityInfo city1Info = forecastByCity(city1);
     CityInfo city2Info = forecastByCity(city2);
