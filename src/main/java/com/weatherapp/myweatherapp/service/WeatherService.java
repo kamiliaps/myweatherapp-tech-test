@@ -63,7 +63,7 @@ public class WeatherService {
     } else if (city2DaylightHours > city1DaylightHours) {
       return city2;
     } else {
-      return "The daylight hours are the same in both " + city1 + " and " + city2;
+      return String.format("The daylight hours are the same in both %s and %s", city1, city2);
     }
   }
 
@@ -80,10 +80,6 @@ public class WeatherService {
     boolean city1Rain = city1Info.getConditions().contains("Rain");
     boolean city2Rain = city2Info.getConditions().contains("Rain");
 
-    String rainCheckResult = "RAIN CHECK<br>" + 
-                             city1 + " : " + city1Rain + "<br>" +
-                             city2 + " : " + city2Rain;
-
-    return rainCheckResult;
+    return String.format("RAIN CHECK<br>%s: %s<br>%s: %s", city1, city1Rain, city2, city2Rain); 
   }
 }
