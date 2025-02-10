@@ -13,6 +13,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 /**
  * Service class to handle business logic
+ * Instead of just modifying the code in WeatherController.java as indicated with the TODO comments,
+ * I decided to create new methods in WeatherService.java to handle the new requirements.
+ * This is to ensure that the controller class remains clean and follows the single responsibility principle, and to help with code maintainability.
  */
 
 @Service
