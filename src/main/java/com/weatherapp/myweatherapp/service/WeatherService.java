@@ -94,6 +94,8 @@ public class WeatherService {
     boolean city1Rain = city1Info.getConditions().contains("Rain");
     boolean city2Rain = city2Info.getConditions().contains("Rain");
 
+    // I chose this format for the response to make it concise, readable and easy to understand.
+    // If it's raining in a city, the value is true, otherwise it's false.
     return String.format("RAIN CHECK<br>%s: %s<br>%s: %s", city1, city1Rain, city2, city2Rain); 
   }
 
