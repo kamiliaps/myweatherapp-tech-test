@@ -75,4 +75,21 @@ public class CityInfo {
   public String getConditions() {
     return currentConditions.conditions;
   }
+
+  // SET METHODS (for testing purposes only)
+  public void setCity(String city) {
+    address = city;
+  }
+
+  public void setSunrise(String sunrise) {
+    currentConditions.sunrise = sunrise;
+  }
+
+  public void setSunset(String sunset) {
+    currentConditions.sunset = sunset;
+  }
+
+  public void setConditions(String conditions) {
+    currentConditions.conditions = conditions;
+  }
 }
