@@ -11,6 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * Service class to handle business logic
+ */
+
 @Service
 public class WeatherService {
 
@@ -30,8 +34,8 @@ public class WeatherService {
 
   /**
    * Calculate the number of daylight hours between sunrise and sunset
-   * @param sunrise sunrise time
-   * @param sunset sunset time
+   * @param sunrise sunrise time in HH:mm:ss format
+   * @param sunset sunset time in HH:mm:ss format
    * @return daylightHours the number of daylight hours
    */
   public double calculateDayLightHours(String sunrise, String sunset) {
