@@ -12,7 +12,7 @@ public class CityInfo {
   String description;
 
   @JsonProperty("currentConditions")
-  CurrentConditions currentConditions;
+  CurrentConditions currentConditions = new CurrentConditions(); // initialise to avoid null pointer exception in tests
 
   @JsonProperty("days")
   List<Days> days;
