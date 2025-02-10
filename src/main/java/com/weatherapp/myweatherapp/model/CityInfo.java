@@ -60,6 +60,10 @@ public class CityInfo {
   }
 
   // GET METHODS
+  public String getCity() {
+    return address;
+  }
+
   public String getSunrise() {
     return currentConditions.sunrise;
   }
