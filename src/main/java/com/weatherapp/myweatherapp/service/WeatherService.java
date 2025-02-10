@@ -7,7 +7,9 @@ import java.time.Duration;
 import java.time.LocalTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class WeatherService {
@@ -21,8 +23,9 @@ public class WeatherService {
    * @return CityInfo object containing the forecast
    */
   public CityInfo forecastByCity(String city) {
-
-    return weatherRepo.getByCity(city);
+    validateCityName(city);
+    CityInfo cityInfo = weatherRepo.getByCity(city);
+    return cityInfo;
   }
 
   /**
@@ -52,6 +55,8 @@ public class WeatherService {
    * @return the city with the longest day or a message if the daylight hours are the same
    */
   public String compareDaylightHours(String city1, String city2) {
+    validateCityName(city1);
+    validateCityName(city2);
     CityInfo city1Info = forecastByCity(city1);
     CityInfo city2Info = forecastByCity(city2);
 
@@ -74,6 +79,8 @@ public class WeatherService {
    * @return a string indicating if it is raining in each city
    */
   public String rainCheck(String city1, String city2) {
+    validateCityName(city1);
+    validateCityName(city2);
     CityInfo city1Info = forecastByCity(city1);
     CityInfo city2Info = forecastByCity(city2);
 
@@ -81,5 +88,15 @@ public class WeatherService {
     boolean city2Rain = city2Info.getConditions().contains("Rain");
 
     return String.format("RAIN CHECK<br>%s: %s<br>%s: %s", city1, city1Rain, city2, city2Rain); 
+  }
+
+  /**
+   * Validate city name against null or empty values
+   * @param city 
+   */
+  public void validateCityName(String city1) {
+    if (city1==null || city1.isEmpty()) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "City name cannot be empty");
+    }
   }
 }
