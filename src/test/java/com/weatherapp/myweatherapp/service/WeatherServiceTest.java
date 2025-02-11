@@ -17,8 +17,7 @@ import com.weatherapp.myweatherapp.repository.VisualcrossingRepository;
 
 @ExtendWith(MockitoExtension.class)
 class WeatherServiceTest {
-
-  // TODO: 12/05/2023 write unit tests
+  
   @Mock
   VisualcrossingRepository weatherRepo;
 
