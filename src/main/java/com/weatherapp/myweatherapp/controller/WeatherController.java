@@ -20,6 +20,7 @@ public class WeatherController {
   @Autowired
   WeatherService weatherService;
 
+  // Given a city name, return the weather forecast for that city
   @GetMapping("/forecast/{city}")
   public ResponseEntity<?> forecastByCity(@PathVariable("city") String city) {
     try {
@@ -30,7 +31,7 @@ public class WeatherController {
     }
   }
 
-  // TODO: given two city names, compare the length of the daylight hours and return the city with the longest day
+  // Given two city names, compare the length of the daylight hours and return the city with the longest day
   @GetMapping("/compareDaylightHours/{city1}/{city2}")
   public ResponseEntity<String> compareDaylightHours(@PathVariable("city1") String city1, @PathVariable("city2") String city2) {
     try {
@@ -41,7 +42,7 @@ public class WeatherController {
     }
   }
 
-  // TODO: given two city names, check which city its currently raining in
+  // Given two city names, check which city its currently raining in
   @GetMapping("/rainCheck/{city1}/{city2}")
   public ResponseEntity<String> rainCheck(@PathVariable("city1") String city1, @PathVariable("city2") String city2) {
     try {
