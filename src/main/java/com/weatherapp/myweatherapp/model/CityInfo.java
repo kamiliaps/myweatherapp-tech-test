@@ -12,7 +12,7 @@ public class CityInfo {
   String description;
 
   @JsonProperty("currentConditions")
-  CurrentConditions currentConditions;
+  CurrentConditions currentConditions = new CurrentConditions(); // initialise to avoid null pointer exception in tests
 
   @JsonProperty("days")
   List<Days> days;
@@ -59,4 +59,37 @@ public class CityInfo {
 
   }
 
+  // GET METHODS
+  public String getCity() {
+    return address;
+  }
+
+  public String getSunrise() {
+    return currentConditions.sunrise;
+  }
+
+  public String getSunset() {
+    return currentConditions.sunset;
+  }
+
+  public String getConditions() {
+    return currentConditions.conditions;
+  }
+
+  // SET METHODS (for testing purposes only)
+  public void setCity(String city) {
+    address = city;
+  }
+
+  public void setSunrise(String sunrise) {
+    currentConditions.sunrise = sunrise;
+  }
+
+  public void setSunset(String sunset) {
+    currentConditions.sunset = sunset;
+  }
+
+  public void setConditions(String conditions) {
+    currentConditions.conditions = conditions;
+  }
 }
